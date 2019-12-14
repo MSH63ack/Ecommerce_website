@@ -1,2 +1,9 @@
-# Web-App-Support
-Repository for web apps support course
+## Running
+
+To run the website, please download all the files.
+
+
+## Authors
+
+* **Marta Shuiak**
+
