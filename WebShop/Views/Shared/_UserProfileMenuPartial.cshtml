@@ -1,6 +1,6 @@
 ﻿@using WebShop.Extensions.IdentityExtensions
 
-<div class="navbar navbar-default navbar-left">
+<div class="navbar navbar-default navbar-left" style="height: 100%; margin-bottom: 0; background: #438f5f;">
     <div class="profile-sidebar">
         <div class="profile-usertitle">
             <div class="profile-usertitle-name">
@@ -22,7 +22,7 @@
                 {
                     <li class="@UserProfileMenuNavPages.SendEmailNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="SendEmail"><i class="fa fa-envelope" style="font-size:18px;color:white"></i> Send Emails</a></li>
                 }
-                <li><button type="submit" class="btn btn-success"><i class="fa fa-outdent"></i> Log out</button></li>
+                <li><button type="submit" class="btn btn-success" style="margin-top: 120%; margin-left: 2%; padding-right: 100%"><i class="fa fa-outdent"></i> Log out</button></li>
             </ul>
         </form>
     </div>
