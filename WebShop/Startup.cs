@@ -33,8 +33,15 @@ namespace WebShop
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
-            services.AddMvc();
+			services.AddAuthentication().AddFacebook(facebookOptions =>
+			{
+				facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+				facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+			});
+
+
+			// Add application services.
+			services.AddMvc();
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailSender, AuthMessageSender>();
 
