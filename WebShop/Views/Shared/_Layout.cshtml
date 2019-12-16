@@ -52,7 +52,7 @@
                         @await Html.PartialAsync("_UserProfileMenuPartial.cshtml")
                     </nav>
                 </div>
-				<div class="col-sm-9 col-md-9 col-lg-10">
+				<div class="col-sm-9 col-md-9 col-lg-10" style="margin-left: -7px;">
 					<div class="body-content">
 						@RenderBody()
 					</div>
@@ -61,24 +61,32 @@
 						<footer class="footer-bs" >
 							<div class="row" style="color: black">
 								<div class="col-md-5 footer-brand animated fadeInLeft">
-									<h3>Logo</h3>
-									<p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+									<h3>AShop</h3>
+									<p>Here you can find different type of services for your car.</p>
 								</div>
 								<div class="col-md-3 footer-nav animated fadeInUp">
 									<h3 style="padding-left: 10%">Menu</h3>
 
-										<ul class="pages">
-											<li><a href="#" style="color: white">Travel</a></li>
-											<li><a href="#" style="color: white">Nature</a></li>
-											<li><a href="#" style="color: white">Explores</a></li>
-											<li><a href="#" style="color: white">Science</a></li>
-											<li><a href="#" style="color: white">Advice</a></li>
-										</ul>
+									<ul class="pages">
+										<li class="@UserProfileMenuNavPages.MainNavClass(ViewContext)"><a asp-controller="Home" asp-action="Main" style="color: white"> Home</a></li>
+										<li class="@UserProfileMenuNavPages.ProductsNavClass(ViewContext)"><a asp-controller="Product" asp-action="Products" style="color: white"> Products</a></li>
+										<li class="@UserProfileMenuNavPages.CartDetailsNavClass(ViewContext)"><a asp-controller="Cart" asp-action="Details" style="color: white"> My Cart</a></li>
+										<li class="@UserProfileMenuNavPages.ManageAccountNavClass(ViewContext)"><a asp-controller="Manage" asp-action="Index" style="color: white"> Manage account</a></li>
+										<li class="@UserProfileMenuNavPages.UserProfileNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="ManageUserProfile" style="color: white"> Manage User profile</a></li>
+										@if (User.IsInRole("Admin"))
+										{
+											<li class="@UserProfileMenuNavPages.SendEmailNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="SendEmail" style="color: white"> Send Emails</a></li>
+										}
+										else
+										{
+											<li class="@UserProfileMenuNavPages.SendEmailNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="SendEmail" style="color: white"> Support page</a></li>
+
+										}
+									</ul>
 					
 								</div>
 								<div class="col-md-3 footer-ns animated fadeInRight">
 									<h3>Newsletter</h3>
-									<p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
 									<p>
 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="Search for...">

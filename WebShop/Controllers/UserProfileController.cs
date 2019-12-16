@@ -108,14 +108,14 @@ namespace WebShop.Controllers
         #region Email
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult SendEmail()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> SendEmail(string subject, string text)
         {
             var emails = _userProfileManager.GetUserProfiles().Select(p => p.ApplicationUser.Email).ToList();

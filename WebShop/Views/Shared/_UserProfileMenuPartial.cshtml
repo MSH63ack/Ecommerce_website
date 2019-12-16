@@ -12,18 +12,23 @@
         </div>
 
         <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right xs-padding">
-            <ul class="nav nav-pills nav-stacked left-side-nav">
-                <li class="@UserProfileMenuNavPages.MainNavClass(ViewContext)"><a asp-controller="Home" asp-action="Main"><i class="fa fa-home" style="font-size:18px;color:white"></i> Home</a></li>
-                <li class="@UserProfileMenuNavPages.ProductsNavClass(ViewContext)"><a asp-controller="Product" asp-action="Products"><i class="fa fa-car" style="font-size:18px;color:white"></i> Products</a></li>
-                <li class="@UserProfileMenuNavPages.CartDetailsNavClass(ViewContext)"><a asp-controller="Cart" asp-action="Details"><i class="fa fa-shopping-cart" style="font-size:18px;color:white"></i> My Cart</a></li>
-                <li class="@UserProfileMenuNavPages.ManageAccountNavClass(ViewContext)"><a asp-controller="Manage" asp-action="Index"><i class="fa fa-cog fa-spin" style="font-size:18px;color:white"></i> Manage account</a></li>
-                <li class="@UserProfileMenuNavPages.UserProfileNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="ManageUserProfile"><i class="fa fa-universal-access" style="font-size:18px;color:white"></i> Manage User profile</a></li>
-                @if (User.IsInRole("Admin"))
-                {
-                    <li class="@UserProfileMenuNavPages.SendEmailNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="SendEmail"><i class="fa fa-envelope" style="font-size:18px;color:white"></i> Send Emails</a></li>
-                }
-                <li><button type="submit" class="btn btn-success" style="margin-top: 120%; margin-left: 2%; padding-right: 100%"><i class="fa fa-outdent"></i> Log out</button></li>
-            </ul>
+			<ul class="nav nav-pills nav-stacked left-side-nav">
+				<li class="@UserProfileMenuNavPages.MainNavClass(ViewContext)"><a asp-controller="Home" asp-action="Main"><i class="fa fa-home" style="font-size:18px;color:white"></i> Home</a></li>
+				<li class="@UserProfileMenuNavPages.ProductsNavClass(ViewContext)"><a asp-controller="Product" asp-action="Products"><i class="fa fa-car" style="font-size:18px;color:white"></i> Products</a></li>
+				<li class="@UserProfileMenuNavPages.CartDetailsNavClass(ViewContext)"><a asp-controller="Cart" asp-action="Details"><i class="fa fa-shopping-cart" style="font-size:18px;color:white"></i> My Cart</a></li>
+				<li class="@UserProfileMenuNavPages.ManageAccountNavClass(ViewContext)"><a asp-controller="Manage" asp-action="Index"><i class="fa fa-cog fa-spin" style="font-size:18px;color:white"></i> Manage account</a></li>
+				<li class="@UserProfileMenuNavPages.UserProfileNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="ManageUserProfile"><i class="fa fa-universal-access" style="font-size:18px;color:white"></i> Manage User profile</a></li>
+				@if (User.IsInRole("Admin"))
+				{
+					<li class="@UserProfileMenuNavPages.SendEmailNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="SendEmail"><i class="fa fa-envelope" style="font-size:18px;color:white"></i> Send Emails</a></li>
+				}
+				else
+				{
+					<li class="@UserProfileMenuNavPages.SendEmailNavClass(ViewContext)"><a asp-controller="UserProfile" asp-action="SendEmail"><i class="fa fa-envelope" style="font-size:18px;color:white"></i> Support page</a></li>
+
+				}
+				<li><button type="submit" class="btn btn-success" style="margin-top: 110%; margin-left: 2%; padding-right: 100%"><i class="fa fa-outdent"></i> Log out</button></li>
+			</ul>
         </form>
     </div>
 </div>
