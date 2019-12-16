@@ -3,14 +3,16 @@
 	ViewData["Title"] = "Details";
 	ViewData.AddActivePage(UserProfileMenuNavPages.CartDetails);
 	var index = 0;
+	var total_prise = 0.0;
+	var discount = 0;
 }
 
 <br />
 <h1><strong>Cart</strong></h1>
 <br />
 <h2>Items in your cart</h2>
-<table class="table">
-	<tr>
+<table class="table" style="background-color: aliceblue">
+	<tr style="background-color: aquamarine">
 		<th>
 			@Html.DisplayNameFor(model => model.Title)
 		</th>
@@ -49,8 +51,47 @@
 			</td>
 		</tr>
 		index++;
+		total_prise = total_prise + item.Price;
 	}
 </table>
+
+<div class="row mb-4" style="padding-left: 1.5%; padding-top:3%">
+	<div class="col-12">
+		<h4 class="section-title mb-3" style="color: green"><strong>Total price in cart</strong></h4>
+		<h3>@(total_prise)$</h3>
+		<hr />
+		<h4 class="section-title mb-3" style="color: green"><strong>Amount of products in cart</strong></h4>
+		<h3>@(index)</h3>
+		<hr />
+		<h4 class="section-title mb-3" style="color: green"><strong>Your discount</strong></h4>
+		@if (total_prise >= 50000.0)
+		{
+			discount = 7;
+			<h3>@(discount)%</h3>
+		}
+		else if (total_prise >= 20000.0 && total_prise < 50000.0)
+		{
+			discount = 5;
+			<h3>@(discount)%</h3>
+		}
+		else if (total_prise >= 10000.0 && total_prise < 20000.0)
+		{
+			discount = 3;
+			<h3>@(discount)%</h3>
+		}
+		else if (total_prise > 0.0 && total_prise < 10000.0)
+		{
+			<h3>You don't have a discount</h3>
+		}
+		else
+		{
+			discount = 10;
+			<h3>@(discount)%</h3>
+		}
+	</div>
+</div>
+
+
 <script>
     function removeFromCart(idx,id) {
         var trId = "#item" + idx;

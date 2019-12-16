@@ -9,6 +9,7 @@ namespace WebShop.Models
 {
 	public class Comment
 	{
+
 		public int CommentID { get; set; }
 
 		[ForeignKey("UserProfile")]
