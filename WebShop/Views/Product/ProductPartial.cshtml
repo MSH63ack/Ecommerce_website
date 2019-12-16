@@ -45,7 +45,7 @@
                             @if (User.IsInRole(Roles.Admin.ToString()))
                             {
                                 <li><a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId" class="fa fa-edit fa-1x" title="Edit"></a></li>
-                                <li><a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId" class="fa fa-trash fa-1x" title="Dlete"></a></li>
+                                <li><a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId" class="fa fa-trash fa-1x" title="Delete"></a></li>
                             }
                         </ul>
                     </div>
